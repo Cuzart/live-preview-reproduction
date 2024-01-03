@@ -158,7 +158,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
             console.log('upload', _node)
             return (
               <div key={index}>
-                <span>Upload not resolved in latest render</span>
+                <span>Upload resolved in latest render</span>
                 <div>{JSON.stringify(_node?.value)}</div>
               </div>
             )
@@ -170,6 +170,16 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               <div key={index}>
                 <span>Block media not resolved</span>
                 <div>{JSON.stringify(_node?.fields?.media)}</div>
+              </div>
+            )
+          }
+
+          case 'relationship': {
+            console.log('relationship', _node)
+            return (
+              <div key={index}>
+                <span>Relationship is resolved</span>
+                <div>{JSON.stringify(_node)}</div>
               </div>
             )
           }
